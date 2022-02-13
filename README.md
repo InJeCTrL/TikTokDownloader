@@ -1,4 +1,4 @@
-﻿﻿# TikTokDownloader
+﻿# TikTokDownloader
 
 > To extract origin video URL on Tiktok
 
