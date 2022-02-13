@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>抖音原视频提取</title>
+		<meta charset="utf-8" />
+		<meta name="referrer" content="no-referrer" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+		<link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui-v2.5.7/css/layui.css" />
+	</head>
+	<style type="text/css">
+		td > .layui-table-cell {
+			height: auto;
+			white-space:normal;
+		}
+		.bg-tiktok{
+			background-color: #161722;
+			border-top: 0px;
+			border-left: 0px;
+			border-right: 0px;
+			border-bottom-width: 1;
+			border-bottom: #20222c;
+			border-style: solid;
+			margin-bottom: 25px;
+		}
+		.font-icon{
+			color:white;
+			font-family: "微软雅黑,sans-serif";
+			font-size: 20px;
+			font-weight: 500;
+			text-shadow: #f03740 -1px -1px,#2addfd 2px 0px;
+		}
+		.layui-card-header{
+			color: white;
+		}
+		.input-raw{
+			height: 6.5rem;
+		}
+		.red-btn{
+			background-color: #fe2c55;
+			border-radius: 5px;
+			font-weight: bold;
+		}
+		.open-btn{
+			background-color: rgba(0, 0, 0, 0);
+			border-radius: 5px;
+			font-weight: bold;
+			border-style: solid;
+			border-color: white;
+			box-shadow: #f03740 -1px -1px,#2addfd 2px 0px;
+		}
+		.lbl-text{
+			color: #161722;
+		}
+	</style>
+	<body style="background-color: #161722;">
+		<script src="https://www.layuicdn.com/layui-v2.5.7/layui.js"></script>
+		<div class="layui-layout layui-layout-admin">
+			<ul class="layui-nav bg-tiktok">
+				<li class="layui-nav-item font-icon">抖音原视频提取</li>
+				<li class="layui-nav-item layui-layout-right">
+					<a href="https://github.com/InJeCTrL/TikTokDownloader" target="_blank">
+						<img src="https://github.githubassets.com/favicons/favicon.svg" />
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="layui-tab" lay-filter="tabs">
+			<ul class="layui-tab-title" style="display: none;">
+				<li class="layui-this" lay-id="first"></li>
+				<li lay-id="second"></li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">
+					<div class="layui-row">
+						<div class="layui-col-xs12">
+							<div class="layui-card layui-bg-black">
+								<div class="layui-card-header">设置目标稿件/动态</div>
+								<div class="layui-card-body">
+									<div class="layui-form-item">
+										<label class="layui-form-label">转载文本</label>
+										<div class="layui-input-block">
+											<textarea id="raw" name="raw" autocomplete="off" placeholder="" class="layui-input input-raw"></textarea>
+										</div>
+									</div>
+									<div>
+										<button id="set" type="button" class="layui-btn layui-btn-normal layui-btn-lg layui-btn-fluid red-btn">提取信息</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-tab-item">
+					<div class="layui-row">
+						<div class="layui-col-xs12">
+							<div class="layui-card layui-bg-black">
+								<div class="layui-card-header">视频信息</div>
+								<div class="layui-card-body">
+									<form class="layui-form layui-form-pane">
+										<div id="titleContainer" class="layui-form-item">
+											<label class="layui-form-label lbl-text">标题</label>
+											<div class="layui-input-block">
+												<input type="text" id="title" disabled="disabled" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<label class="layui-form-label lbl-text">用户昵称</label>
+												<div class="layui-input-inline">
+													<input type="text" id="nickname" disabled="disabled" class="layui-input">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label lbl-text">点赞数</label>
+												<div class="layui-input-inline">
+													<input type="text" id="like" disabled="disabled" class="layui-input">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label lbl-text">评论数</label>
+												<div class="layui-input-inline">
+													<input type="text" id="CommentCnt" disabled="disabled" class="layui-input">
+												</div>
+											</div>
+											<div class="layui-inline">
+												<label class="layui-form-label lbl-text">收藏数</label>
+												<div class="layui-input-inline">
+													<input type="text" id="CollectCnt" disabled="disabled" class="layui-input">
+												</div>
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label lbl-text">原视频地址</label>
+											<div class="layui-input-block">
+												<textarea id="MediaURL" disabled="disabled" class="layui-input"></textarea>
+											</div>
+										</div>
+										<br />
+										<div>
+											<button id="open" type="button" class="layui-btn layui-btn-normal layui-btn-lg layui-btn-fluid open-btn">打开视频</button>
+										</div>
+										<br />
+										<div>
+											<button id="download" type="button" class="layui-btn layui-btn-normal layui-btn-lg layui-btn-fluid red-btn">下载视频</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="text-align: center;padding-bottom: 10px;color: #FFFFFF;">
+			Powered by DotNET 6 on Docker
+		</div>
+		<script type="text/javascript">
+			layui.use(['layer', 'element', 'form', 'layedit'], function(){
+				var layer = layui.layer
+				,$ = layui.$
+				,element = layui.element
+				,layedit = layui.layedit;
+				$("#set").click(function(){
+					$.ajax({
+						url: "https://tkdl.injectrl.xyz/api/MediaInfo",
+						type: "get",
+						data: { "raw": $("#raw").val() },
+						contentType: "application/json",
+						crossDomain: true,
+						success: function(data){
+							if (data["code"] != 0){
+								layer.msg(data["message"]);
+							}
+							else{
+								$("#title").val(data["data"]["title"]);
+								$("#nickname").val(data["data"]["nickName"]);
+								$("#like").val(data["data"]["like"]);
+								$("#CommentCnt").val(data["data"]["commentCnt"]);
+								$("#CollectCnt").val(data["data"]["commentCnt"]);
+								$("#MediaURL").val(data["data"]["mediaURL"]);
+								element.tabChange('tabs', 'second');
+							}
+						},
+						error: function(e){
+							layer.msg("服务暂不可用");
+							console.log(e);
+						}
+					});
+				});
+				$("#open").click(function(){
+					window.open($("#MediaURL").val());
+				});
+				$("#download").click(function(){
+					download($("#MediaURL").val());
+				});
+			});
+			function download(url){
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', url, true);
+				xhr.responseType = "blob";
+				xhr.onload = function () {
+				 if (this.status === 200) {
+				 var blob = this.response;
+				 var a = document.createElement('a');
+				 a.download = 'mp4.mp4';
+				 a.href=window.URL.createObjectURL(blob);
+				 a.click();
+				  }
+				};
+				xhr.send();
+			}
+		</script>
+	</body>
+</html>
