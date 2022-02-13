@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+Ôªøusing Microsoft.AspNetCore.Mvc;
 using TikTokDownloader.Models;
 using TikTokDownloader.Utils;
 
@@ -23,7 +23,7 @@ namespace TikTokDownloader.Controllers
                 return new ResultWrapper
                 {
                     Code = 1,
-                    Message = "∑«∑® ‰»Î",
+                    Message = "ÈùûÊ≥ïËæìÂÖ•",
                     Count = 0
                 };
             }
@@ -33,7 +33,7 @@ namespace TikTokDownloader.Controllers
                 return new ResultWrapper
                 {
                     Code = 1,
-                    Message = "≤È—Ø ß∞‹",
+                    Message = "Êü•ËØ¢Â§±Ë¥•",
                     Count = 0
                 };
             }
