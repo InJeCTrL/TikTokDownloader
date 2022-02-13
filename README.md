@@ -1,4 +1,4 @@
-﻿# TikTokDownloader
+﻿﻿# TikTokDownloader
 
 > To extract origin video URL on Tiktok
 
@@ -21,6 +21,10 @@ My first Dotnet 6 project! And it's about the most popular short video platform 
    ![2](./docs/2.png)
 
 3. Click the button bellow the textarea
+
+   ![3](./docs/3.png)
+
+   In this view, you can check some basic information about this video. What's more, you can open the video to watch or download the video file(.mp4).
 
 ## Technology
 
