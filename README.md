@@ -1,6 +1,10 @@
-﻿# TikTokDownloader
+﻿﻿# TikTokDownloader
 
 > To extract origin video URL on Tiktok
+
+## Entrance
+
+https://injectrl.github.io/TikTokDownloader/
 
 ## Introduction
 
