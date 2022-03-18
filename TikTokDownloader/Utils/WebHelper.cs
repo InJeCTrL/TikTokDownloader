@@ -11,7 +11,7 @@ namespace TikTokDownloader.Utils
             try
             {
                 var content = httpClient.GetStringAsync(url).Result;
-                var labelA = "<title data-react-helmet=\"true\"> ";
+                var labelA = "<title data-react-helmet=\"true\">";
                 var labelB = "<span class=\"CE7XkkTw\">";
                 var labelC = "src%22%3A%22%2F%2F";
                 var labelNickTail = "</span></span></span></span></span></div></a><p class=\"yibO9njB\">";
